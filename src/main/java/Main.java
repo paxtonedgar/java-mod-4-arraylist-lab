@@ -11,7 +11,12 @@ public class Main {
     }
 
     public static ArrayList<Integer> mergeTwoArrayLists(ArrayList<Integer> l1, ArrayList<Integer> l2) {
-        // your code here
-        return null;
+        ArrayList<Integer> positive = new ArrayList<Integer>();
+        ArrayList<Integer> negative = new ArrayList<Integer>();
+
+        l1.stream().forEach(i -> (i < 0 ? negative : positive).add(i));
+        l2.stream().forEach(i -> (i < 0 ? negative : positive).add(i));
+
+        return positive;
     }
 }
